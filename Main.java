@@ -7,7 +7,7 @@ public class Main{
 		// car.Init();	
 		// car.Read();
 		// car.Display();
-		System.setProperty("console.encoding","Cp866");
+		System.setProperty("console.encoding","windows-1251");
 		var toyota = new Car();
     Car bmw = new Car();
     Car lamba = new Car();
@@ -54,19 +54,18 @@ class Shop{
 	}
 	public void ChangeClass() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("”кажите класс машины: ");
-		classCar = scan.nextLine();
+		System.out.print("”кажите класс машины: ");
+		this.classCar = scan.nextLine();
 	}
 	public void InfoClass() {
-		System.out.print("”кажите класс машины: ");
-		System.out.println(classCar);
+		System.out.println(" ласс машины: " + classCar);
     }
     public void InfoBalance() {
         System.out.print("Ѕаланс: ");
 		System.out.println(balance);
     }
     public void SaleCar() {
-        slot.Sale(balance);
+        balance = slot.Sale(balance);
         slot.Init();
     }
 }
@@ -121,10 +120,11 @@ class Car{
 		System.out.println(transmission);
 		System.out.println(color);
 		System.out.println(year);
-		System.out.println(price);
+		System.out.println(price + "\n");
 	}
-	public void Sale(int _balance){
+	public int Sale(int _balance){
 		_balance += price;
+		return _balance;
 	}
 	public void Paint() {
 		String newColor;
